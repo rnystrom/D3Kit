@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "D3Defines.h"
+#import "D3HTTPClient.h"
+#import "D3Career.h"
 
 @interface D3Kit : NSObject
 

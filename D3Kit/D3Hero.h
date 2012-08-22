@@ -15,7 +15,6 @@ typedef void (^D3HeroRequestFailure)(NSError*);
 #import "D3Artisan.h"
 #import "D3Item.h"
 #import "D3Follower.h"
-#import "D3Object.h"
 
 enum Gender {
     GenderMale = 0,

@@ -8,7 +8,6 @@
 
 #import "AFImageRequestOperation.h"
 #import "D3Rune.h"
-#import "D3Object.h"
 
 @interface D3Skill : D3Object
 

@@ -7,7 +7,6 @@
 //
 
 #import "D3Hero.h"
-#import "D3Object.h"
 
 @class D3Career;
 
