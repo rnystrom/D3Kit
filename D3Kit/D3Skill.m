@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "D3Defines.h"
 #import "D3Skill.h"
 
 @interface D3Skill ()

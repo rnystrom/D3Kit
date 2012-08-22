@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "D3Defines.h"
 #import "AFHTTPClient.h"
 #import "AFJSONRequestOperation.h"
 #import "D3Career.h"

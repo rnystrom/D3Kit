@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "D3HTTPClient.h"
 #import "D3Hero.h"
 
 @implementation D3Hero

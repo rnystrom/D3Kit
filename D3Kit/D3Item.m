@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "D3HTTPClient.h"
 #import "D3Item.h"
 
 @interface D3Item ()
