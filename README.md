@@ -9,6 +9,7 @@ D3Kit is an easy to use layer to communicate with the [Diablo 3 API](http://bliz
 * [Career](https://github.com/rnystrom/D3Kit#career)
 * [Hero](https://github.com/rnystrom/D3Kit#hero)
 * [Images](https://github.com/rnystrom/D3Kit#images)
+* [Documentation]()
 
 ##Installation
 
@@ -32,7 +33,7 @@ In *your* project, open the **Build Settings** tab. Search for "User Header Sear
 
 ![Search Paths ](https://github.com/rnystrom/D3Kit/blob/master/images/search-paths.png?raw=true)
 
-Find the “Other Linker Flags” option, and add the value -ObjC (no quotes).
+Find the “Other Linker Flags” option, and add the value <code>-ObjC</code> (no quotes).
 
 ![Flags](https://github.com/rnystrom/D3Kit/blob/master/images/flags.png?raw=true)
 
