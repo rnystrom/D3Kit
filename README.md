@@ -4,6 +4,9 @@ D3Kit
 ##Quick Search
 * [Installation](https://github.com/rnystrom/D3Kit#installation)
 * [Overview](https://github.com/rnystrom/D3Kit#overview)
+* [Career](https://github.com/rnystrom/D3Kit#career)
+* [Hero](https://github.com/rnystrom/D3Kit#hero)
+* [Image](https://github.com/rnystrom/D3Kit#image)
 
 ##Installation
 
@@ -59,6 +62,8 @@ The class <code>D3HTTPClient</code> helps retrieve information from Blizzard's D
 * Extra information (ie. D3Career call does not fully populate a D3Hero object by nature of the API )
 * Images
 
+##Career
+
 To load a career and associated objects pass in an account NSString. This string should be in the format <code>battletag#1234</code> or else <code>failure()</code> will be called. The built-in validation requires a "#" to seperate the account name and number.
 
 ``` objective-c
@@ -69,6 +74,8 @@ To load a career and associated objects pass in an account NSString. This string
 }];
 ```
 
+##Hero
+
 When <code>getCareerForBattletag:success:</code> is called each hero for the career is insantiated but not fully loaded because of the way the Blizzard Diablo 3 API is implemented (which is a good thing, as it keeps the response size small). To finish loading a D3Hero object, call:
 
 ``` objective-c
@@ -78,6 +85,8 @@ When <code>getCareerForBattletag:success:</code> is called each hero for the car
     // ...
 }];
 ```
+
+##Image
 
 Currently all image requests are instance methods that return a <code>AFImageRequestOperation</code> in the assumption that images will be collected in batches. Ie:
 
