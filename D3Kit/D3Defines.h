@@ -23,6 +23,9 @@ extern NSString * const kD3ItemParam;
 extern NSString * const kD3SkillParam;
 
 extern NSString * const kD3CareerNotification;
+extern NSString * const kD3CareerNotificationUserInfoKey;
+extern NSString * const kD3HeroNotification;
+extern NSString * const kD3HeroNotificationUserInfoKey;
 extern NSString * const kD3LastHeroPlayedNotification;
 extern NSString * const kD3DoorsAnimatedOffScreenNotification;
 extern NSString * const kD3DoorsHeroNotification;

@@ -26,3 +26,5 @@ NSString * const kD3LastHeroPlayedNotification = @"com.nystromproductions.profil
 NSString * const kD3DoorsAnimatedOffScreenNotification = @"com.nystromproductions.profiles.doors-offscreen";
 NSString * const kD3DoorsHeroNotification = @"com.nystromproductions.profiles.hero";
 NSString * const kD3DoorsItemNotification = @"com.nystromproductions.profiles.item";
+NSString * const kD3CareerNotificationUserInfoKey = @"D3_UserInfo_Career";
+NSString * const kD3HeroNotificationUserInfoKey = @"D3_UserInfo_Hero";

@@ -55,10 +55,13 @@
     [[D3HTTPClient sharedClient] getJSONPath:heroPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *json) {
         self.isFullyLoaded = YES;
         [self parseFullJSON:json];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kD3DoorsHeroNotification object:self];
         if (success) {
             success(self);
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSDictionary *userInfo = @{kD3HeroNotificationUserInfoKey : self};
+            [[NSNotificationCenter defaultCenter] postNotificationName:kD3DoorsHeroNotification object:nil userInfo:userInfo];
+        });
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failure) {
             failure(error);
