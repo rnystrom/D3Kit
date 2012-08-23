@@ -48,30 +48,26 @@ The classes that are populated from Blizzard's Diablo 3 API are:
 The class that helps retrieve information from Blizzard's Diablo 3 API is a subclass of [AFNetworking's AFHTTPClient](http://afnetworking.org/Documentation/Classes/AFHTTPClient.html). All functionality of <code>AFHTTPClient</code> is available. However there are helper methods included with each class to retrieve:
 
 * Extra information (ie. D3Career call does not fully populate a D3Hero object by nature of the API )
-    * Images
+* Images
 
-    Currently all image requests are instance methods that return a <code>AFImageRequestOperation</code> in the assumption that images will be collected in batches. Ie:
-    ``` objective-c
-    [hero.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop ) {
-        UIButton *button = // get corresponding button/imageview
-            D3Item *item = (D3Item*)obj;
-        AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image ) {
-            [button setImage:image forState:UIControlStateNormal ];
-            // ...
+Currently all image requests are instance methods that return a <code>AFImageRequestOperation</code> in the assumption that images will be collected in batches. Ie:
 
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error ) {
-            // ...
-
-        }];
-        [mutOperations addObject:operation ];
-
+``` objective-c
+[hero.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop ) {
+    UIButton *button = // get corresponding button/imageview
+        D3Item *item = (D3Item*)obj;
+    AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image ) {
+        [button setImage:image forState:UIControlStateNormal ];
+        // ...
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error ) {
+        // ...
     }];
+    [mutOperations addObject:operation ];
+}];
 [[D3HTTPClient sharedClient ] enqueueBatchOfHTTPRequestOperations:mutOperations progressBlock:^(NSUInteger completedOperations, NSUInteger totalOperations ){
     // ...
-
 }completionBlock:^(NSArray *operations ) {
     // ...
-
 }];
 ```
 
