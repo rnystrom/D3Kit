@@ -1,6 +1,8 @@
 ![D3Kit](https://github.com/rnystrom/D3Kit/blob/master/images/logo.png?raw=true)
 ======
 
+D3Kit is an easy to use layer to communicate with the [Diablo 3 API](http://blizzard.github.com/d3-api-docs/) maintained by Blizzard Entertainment. D3Kit handles all of the requests and gives you a simple block style callback system for successes and failures. After reqeusts are made, D3Kit parses the JSON response from Blizzard and builds NSObjects for you to use in your apps.
+
 ##Quick Search
 * [Installation](https://github.com/rnystrom/D3Kit#installation)
 * [Overview](https://github.com/rnystrom/D3Kit#overview)
@@ -109,3 +111,11 @@ Currently all image requests are instance methods that return a <code>AFImageReq
 
 However it should be trivial to add the <code>AFImageRequestOperation</code> to the queue of <code>D3HTTPClient</code>.
 
+
+Copyright (C) 2012 Ryan Nystrom
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software" ), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
