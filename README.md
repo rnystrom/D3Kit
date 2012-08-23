@@ -1,4 +1,4 @@
-D3Kit
+![D3Kit](https://github.com/rnystrom/D3Kit/blob/master/images/logo.png?raw=true)
 ======
 
 ##Quick Search
@@ -92,10 +92,8 @@ Currently all image requests are instance methods that return a <code>AFImageReq
 
 ``` objective-c
 [hero.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop ) {
-    UIButton *button = // get corresponding button/imageview
     D3Item *item = (D3Item*)obj;
     AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image ) {
-        [button setImage:image forState:UIControlStateNormal ];
         // ...
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error ) {
         // ...
