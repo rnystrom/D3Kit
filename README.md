@@ -45,7 +45,7 @@ The classes that are populated from Blizzard's Diablo 3 API are:
 * D3Rune
 * D3Skill
 
-Classes have relations based on the Blizzard Diablo 3 API. Currently the relations are:
+Classes have relationships based on the Blizzard Diablo 3 API. Currently the relations are:
 
 * D3Career <code>has many</code> D3Hero
 * D3Career <code>has many</code> D3Artisan
@@ -54,7 +54,7 @@ Classes have relations based on the Blizzard Diablo 3 API. Currently the relatio
 * D3Hero <code>has many</code> D3Follower
 * D3Item <code>has one</code> D3Rune
 
-The class that helps retrieve information from Blizzard's Diablo 3 API is a subclass of [AFNetworking's AFHTTPClient](http://afnetworking.org/Documentation/Classes/AFHTTPClient.html). All functionality of <code>AFHTTPClient</code> is available. However there are helper methods included with each class to retrieve:
+The class <code>D3HTTPClient</code> helps retrieve information from Blizzard's Diablo 3 API is a subclass of [AFNetworking's AFHTTPClient](http://afnetworking.org/Documentation/Classes/AFHTTPClient.html). All functionality of <code>D3HTTPClient</code> is available. However there are helper methods included with each class to retrieve:
 
 * Extra information (ie. D3Career call does not fully populate a D3Hero object by nature of the API )
 * Images
