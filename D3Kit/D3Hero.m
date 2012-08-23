@@ -55,6 +55,7 @@
     [[D3HTTPClient sharedClient] getJSONPath:heroPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *json) {
         self.isFullyLoaded = YES;
         [self parseFullJSON:json];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kD3DoorsHeroNotification object:self];
         if (success) {
             success(self);
         }
