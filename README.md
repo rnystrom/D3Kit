@@ -28,11 +28,11 @@ Then add <code>libD3Kit.a</code> to **Link Binary With Libraries**.
 
 ![Link Binary with Libraries ](https://github.com/rnystrom/D3Kit/blob/master/images/libraries.png?raw=true)
 
-In *your* project, open the **Build Settings** tab. Search for "User Header Search Paths". Set this value to <code>"${PROJECT_DIR}/D3Kit"</code> (including quotes ). Also set "Always Search User Paths" to YES.
+In *your* project, open the **Build Settings** tab. Search for "User Header Search Paths". Set this value to <code>"${PROJECT_DIR}/D3Kit"</code> (including quotes). Also set "Always Search User Paths" to YES.
 
 ![Search Paths ](https://github.com/rnystrom/D3Kit/blob/master/images/search-paths.png?raw=true)
 
-Find the “Other Linker Flags” option, and add the value -ObjC (no quotes ).
+Find the “Other Linker Flags” option, and add the value -ObjC (no quotes).
 
 ![Flags](https://github.com/rnystrom/D3Kit/blob/master/images/flags.png?raw=true)
 
@@ -61,7 +61,7 @@ Classes have relationships based on the Blizzard Diablo 3 API. Currently the rel
 
 The class <code>D3HTTPClient</code> helps retrieve information from Blizzard's Diablo 3 API is a subclass of AFNetworking's [AFHTTPClient](http://afnetworking.org/Documentation/Classes/AFHTTPClient.html). All functionality of <code>D3HTTPClient</code> is available. However there are helper methods included with each class to retrieve:
 
-* Extra information (ie. D3Career call does not fully populate a D3Hero object by nature of the API )
+* Extra information (ie. D3Career call does not fully populate a D3Hero object by nature of the API)
 * Images
 
 ##Career
@@ -69,9 +69,9 @@ The class <code>D3HTTPClient</code> helps retrieve information from Blizzard's D
 To load a career and associated objects pass in an account NSString. This string should be in the format <code>battletag#1234</code> or else <code>failure()</code> will be called. The built-in validation requires a "#" to seperate the account name and number.
 
 ``` objective-c
-[D3Career getCareerForBattletag:account success:^(D3Career *career ) {
+[D3Career getCareerForBattletag:account success:^(D3Career *career) {
     // ...
-} failure:^(NSError *error ) {
+} failure:^(NSError *error) {
     // ...
 }];
 ```
@@ -81,9 +81,9 @@ To load a career and associated objects pass in an account NSString. This string
 When <code>getCareerForBattletag:success:</code> is called each hero for the career is insantiated but not fully loaded because of the way the Blizzard Diablo 3 API is implemented (which is a good thing, as it keeps the response size small). To finish loading a D3Hero object, call:
 
 ``` objective-c
-[hero finishLoadingWithSuccess:^(D3Hero *hero ) {
+[hero finishLoadingWithSuccess:^(D3Hero *hero) {
     // ...
-} failure:^(NSError *error ) {
+} failure:^(NSError *error) {
     // ...
 }];
 ```
@@ -93,18 +93,18 @@ When <code>getCareerForBattletag:success:</code> is called each hero for the car
 Currently all image requests are instance methods that return a [AFImageRequestOperation](http://afnetworking.org/Documentation/Classes/AFImageRequestOperation.html) in the assumption that images will be collected in batches. Ie:
 
 ``` objective-c
-[hero.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop ) {
+[hero.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
     D3Item *item = (D3Item*)obj;
-    AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image ) {
+    AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         // ...
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error ) {
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         // ...
     }];
     [mutOperations addObject:operation ];
 }];
-[[D3HTTPClient sharedClient ] enqueueBatchOfHTTPRequestOperations:mutOperations progressBlock:^(NSUInteger completedOperations, NSUInteger totalOperations ){
+[[D3HTTPClient sharedClient ] enqueueBatchOfHTTPRequestOperations:mutOperations progressBlock:^(NSUInteger completedOperations, NSUInteger totalOperations){
     // ...
-}completionBlock:^(NSArray *operations ) {
+}completionBlock:^(NSArray *operations) {
     // ...
 }];
 ```
@@ -114,13 +114,14 @@ However it should be trivial to add the [AFImageRequestOperation](http://afnetwo
 ##Contact
 
 [Ryan Nystrom](mailTo:rnystrom@whoisryannystrom.com)
+
 [@nystrorm](https://twitter.com/nystrorm)
 
 ##License
 
 Copyright (C) 2012 Ryan Nystrom
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software" ), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
