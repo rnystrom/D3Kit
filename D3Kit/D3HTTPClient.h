@@ -18,8 +18,6 @@ typedef void (^D3HTTPClientFailure)(AFJSONRequestOperation *operation, NSError *
 
 +(D3HTTPClient*)sharedClient;
 
-@property (strong, nonatomic) D3Career *career;
-
 - (void)getJSONPath:(NSString *)path parameters:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *, NSDictionary*))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure;
 
 @end
