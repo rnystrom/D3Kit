@@ -49,8 +49,8 @@
 
 #pragma mark - Loading
 
-- (void)finishLoadingWithSuccess:(void (^)(D3Hero *hero))success failure:(void (^)(NSError *error))failure {
-    NSString *careerParam = [D3Career apiParamFromBattletag:[D3HTTPClient sharedClient].career.battletag];
+- (void)finishLoadingForCareer:(D3Career*)career WithSuccess:(void (^)(D3Hero *hero))success failure:(void (^)(NSError *error))failure {
+    NSString *careerParam = [D3Career apiParamFromBattletag:career.battletag];
     NSString *heroPath = [NSString stringWithFormat:@"%@%@/%i",careerParam,kD3APIHeroParam,self.ID];
     [[D3HTTPClient sharedClient] getJSONPath:heroPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *json) {
         self.isFullyLoaded = YES;

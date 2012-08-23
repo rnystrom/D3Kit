@@ -60,8 +60,7 @@
                 D3Career *career = [D3Career careerFromJSON:json];
                 if (career) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [D3HTTPClient sharedClient].career = career;
-                        [[NSNotificationCenter defaultCenter] postNotificationName:kD3CareerNotification object:nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kD3CareerNotification object:career];
                     });
                 }
                 if (success) {

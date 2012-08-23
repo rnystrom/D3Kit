@@ -7,6 +7,7 @@
 //
 
 @class D3Hero;
+@class D3Career;
 
 typedef void (^D3HeroRequestSuccess)(D3Hero*);
 typedef void (^D3HeroRequestFailure)(NSError*);
@@ -80,7 +81,7 @@ enum Gender {
 
 @property (strong, nonatomic) NSDate *lastUpdated;
 
-- (void)finishLoadingWithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure;
+- (void)finishLoadingForCareer:(D3Career*)career WithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure;
 - (NSString*)formattedClassName;
 
 @end
