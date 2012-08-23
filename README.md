@@ -51,8 +51,8 @@ The class that helps retrieve information from Blizzard's Diablo 3 API is a subc
     * Images
 
     Currently all image requests are instance methods that return a <code>AFImageRequestOperation</code> in the assumption that images will be collected in batches. Ie:
-
-    <code>[hero.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop ) {
+    ``` objective-c
+    [hero.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop ) {
         UIButton *button = // get corresponding button/imageview
             D3Item *item = (D3Item*)obj;
         AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image ) {
@@ -72,6 +72,8 @@ The class that helps retrieve information from Blizzard's Diablo 3 API is a subc
 }completionBlock:^(NSArray *operations ) {
     // ...
 
-}];</code>
+}];
+```
 
 However it should be trivial to add the <code>AFImageRequestOperation</code> to the queue of <code>D3HTTPClient</code>.
+
