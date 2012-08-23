@@ -119,6 +119,7 @@
             for (NSDictionary *heroJSON in (NSArray*)json[@"heroes"]) {
                 D3Hero *hero = [D3Hero heroFromPreviewJSON:heroJSON];
                 if (hero) {
+                    hero.career = career;
                     [mutHeroes addObject:hero];
                 }
             }
@@ -130,6 +131,7 @@
             for (NSDictionary *heroJSON in (NSArray*)json[@"fallenHeroes"]) {
                 D3Hero *fallenHero = [D3Hero fallenHeroFromJSON:heroJSON];
                 if (fallenHero) {
+                    fallenHero.career = career;
                     [mutFallenHeroes addObject:fallenHero];
                 }
             }

@@ -27,6 +27,8 @@ enum Gender {
 + (D3Hero*)heroFromPreviewJSON:(NSDictionary*)json;
 + (D3Hero*)fallenHeroFromJSON:(NSDictionary*)json;
 
+@property (weak, nonatomic) D3Career *career;
+
 @property (strong, nonatomic) NSString *name;
 @property (assign, nonatomic) NSString *gender;
 @property (strong, nonatomic) NSString *className;
@@ -81,7 +83,7 @@ enum Gender {
 
 @property (strong, nonatomic) NSDate *lastUpdated;
 
-- (void)finishLoadingForCareer:(D3Career*)career WithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure;
+- (void)finishLoadingWithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure;
 - (NSString*)formattedClassName;
 
 @end
