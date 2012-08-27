@@ -28,6 +28,10 @@
         if ([type isKindOfClass:[NSDictionary class]]) {
             item.typeString = type[@"id"];
             
+            if ([item isShield]) {
+                item.itemType = D3ItemGeneralTypeArmor;
+            }
+            
             NSNumber *twoHanded = type[@"twoHanded"];
             item.isTwoHand = twoHanded.boolValue;
         }
@@ -153,6 +157,24 @@
         return mutString;
     }
     return nil;
+}
+
+
+- (BOOL)isShield {
+    NSRange range = [[self.typeString lowercaseString] rangeOfString:@"shield"];
+    return range.location != NSNotFound;
+}
+
+
+- (BOOL)isRanged {
+    NSRange range = [[self.typeString lowercaseString] rangeOfString:@"bow"];
+    return range.location != NSNotFound;
+}
+
+
+- (BOOL)isQuiver {
+    NSRange range = [[self.typeString lowercaseString] rangeOfString:@"quiver"];
+    return range.location != NSNotFound;
 }
 
 

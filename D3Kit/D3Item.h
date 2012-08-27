@@ -82,5 +82,8 @@ enum D3ItemGeneralType {
 - (void)finishLoadingWithSuccess:(D3ItemRequestSuccess)success failure:(D3ItemRequestFailure)failure;
 - (NSString*)setItemsFormattedString;
 - (NSString*)setBonusesFormattedString;
+- (BOOL)isShield;
+- (BOOL)isRanged;
+- (BOOL)isQuiver;
 
 @end
