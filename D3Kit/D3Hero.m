@@ -61,6 +61,10 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSDictionary *userInfo = @{kD3HeroNotificationUserInfoKey : self};
             [[NSNotificationCenter defaultCenter] postNotificationName:kD3DoorsHeroNotification object:nil userInfo:userInfo];
+            BOOL isLastPlayedHero = self.career.lastHeroPlayed.ID == self.ID;
+            if (isLastPlayedHero) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kD3LastHeroPlayedNotification object:nil userInfo:userInfo];
+            }
         });
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failure) {
