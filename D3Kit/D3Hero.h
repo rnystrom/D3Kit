@@ -62,6 +62,7 @@ enum Gender {
 @property (strong, nonatomic) D3Follower *enchantress;
 
 @property (assign, nonatomic) NSInteger level;
+@property (assign, nonatomic) NSInteger paragonLevel;
 @property (assign, nonatomic) NSInteger ID;
 @property (assign, nonatomic) NSInteger life;
 @property (assign, nonatomic) NSInteger strength;
@@ -75,11 +76,23 @@ enum Gender {
 @property (assign, nonatomic) NSInteger poisonResist;
 @property (assign, nonatomic) NSInteger arcaneResist;
 @property (assign, nonatomic) NSInteger physicalResist;
+@property (assign, nonatomic) NSInteger blockAmountMax;
+@property (assign, nonatomic) NSInteger blockAmountMin;
+@property (assign, nonatomic) NSInteger primaryResource;
+@property (assign, nonatomic) NSInteger secondaryResource;
+@property (assign, nonatomic) NSInteger eliteKills;
 
 @property (assign, nonatomic) CGFloat damageIncrease;
 @property (assign, nonatomic) CGFloat damageReduction;
 @property (assign, nonatomic) CGFloat critChance;
 @property (assign, nonatomic) CGFloat damage;
+@property (assign, nonatomic) CGFloat goldFind;
+@property (assign, nonatomic) CGFloat magicFind;
+@property (assign, nonatomic) CGFloat lifeOnHit;
+@property (assign, nonatomic) CGFloat lifePerKill;
+@property (assign, nonatomic) CGFloat lifeSteal;
+@property (assign, nonatomic) CGFloat thorns;
+@property (assign, nonatomic) CGFloat blockChance;
 
 @property (strong, nonatomic) NSDate *lastUpdated;
 

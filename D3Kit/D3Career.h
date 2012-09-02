@@ -10,22 +10,60 @@
 
 @class D3Career;
 
+/** This class represents a Diablo 3 account. It is populated by requesting information from Blizzard's API for Diablo 3.
+ 
+ */
+
 typedef void (^D3CareerRequestSuccess)(D3Career*);
 typedef void (^D3CareerRequestFailure)(NSError*);
 
 @interface D3Career : D3Object
 
+/**---------------------------------------------------------------------------------------
+ * @name Parsing
+ *  ---------------------------------------------------------------------------------------
+ */
+
 + (D3Career*)careerFromJSON:(NSDictionary*)json;
+
+/**---------------------------------------------------------------------------------------
+ * @name API Request
+ *  ---------------------------------------------------------------------------------------
+ */
+
 + (void)getCareerForBattletag:(NSString*)battletag success:(D3CareerRequestSuccess)success failure:(D3CareerRequestFailure)failure;
+
+/**---------------------------------------------------------------------------------------
+ * @name Helpers
+ *  ---------------------------------------------------------------------------------------
+ */
+
 + (BOOL)battletagIsValid:(NSString*)battletag;
 + (NSString*)battletagDivider;
 + (NSString*)apiParamFromBattletag:(NSString*)battletag;
+
+/**---------------------------------------------------------------------------------------
+ * @name Account information
+ *  ---------------------------------------------------------------------------------------
+ */
 
 @property (strong, nonatomic) NSString *battletag;
 
 @property (assign, nonatomic) D3Hero *lastHeroPlayed;
 
 @property (strong, nonatomic) NSDate *lastUpdated;
+
+@property (strong, nonatomic) NSArray *artisans;
+@property (strong, nonatomic) NSArray *hardcoreArtisans;
+@property (strong, nonatomic) NSArray *timePlayedArray;
+@property (strong, nonatomic) NSArray *progression;
+@property (strong, nonatomic) NSArray *heroes;
+@property (strong, nonatomic) NSArray *fallenHeros;
+
+/**---------------------------------------------------------------------------------------
+ * @name Account statistics
+ *  ---------------------------------------------------------------------------------------
+ */
 
 @property (assign, nonatomic) NSInteger killsMonsters;
 @property (assign, nonatomic) NSInteger killsElites;
@@ -36,12 +74,5 @@ typedef void (^D3CareerRequestFailure)(NSError*);
 @property (assign, nonatomic) CGFloat timePlayedMonk;
 @property (assign, nonatomic) CGFloat timePlayedWitchDoctor;
 @property (assign, nonatomic) CGFloat timePlayedWizard;
-
-@property (strong, nonatomic) NSArray *artisans;
-@property (strong, nonatomic) NSArray *hardcoreArtisans;
-@property (strong, nonatomic) NSArray *timePlayedArray;
-@property (strong, nonatomic) NSArray *progression;
-@property (strong, nonatomic) NSArray *heroes;
-@property (strong, nonatomic) NSArray *fallenHeros;
 
 @end

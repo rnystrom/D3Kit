@@ -11,8 +11,7 @@
 
 @implementation D3Hero
 
-+ (D3Hero*)heroFromPreviewJSON:(NSDictionary*)json
-{
++ (D3Hero*)heroFromPreviewJSON:(NSDictionary*)json {
     D3Hero *hero = nil;
     if ([json isKindOfClass:[NSDictionary class]]) {
         hero = [[D3Hero alloc] init];
@@ -28,6 +27,9 @@
         NSString *levelString = json[@"level"];
         hero.level = levelString.integerValue;
         
+        NSString *paragonString = json[@"paragonLevel"];
+        hero.paragonLevel = paragonString.integerValue;
+        
         NSString *idString = json[@"id"];
         hero.ID = idString.integerValue;
         
@@ -41,8 +43,7 @@
 }
 
 
-+ (D3Hero*)fallenHeroFromJSON:(NSDictionary*)json
-{
++ (D3Hero*)fallenHeroFromJSON:(NSDictionary*)json {
     return nil;
 }
 
@@ -134,6 +135,17 @@
             self.arcaneResist = ((NSString*)statsDictionary[@"arcaneResist"]).integerValue;
             self.physicalResist = ((NSString*)statsDictionary[@"physicalResist"]).integerValue;
             self.damage = ((NSString*)statsDictionary[@"damage"]).floatValue;
+            self.blockAmountMax = ((NSString*)statsDictionary[@"blockAmountMax"]).floatValue;
+            self.blockAmountMin = ((NSString*)statsDictionary[@"blockAmountMin"]).floatValue;
+            self.blockChance = ((NSString*)statsDictionary[@"blockChance"]).floatValue;
+            self.goldFind = ((NSString*)statsDictionary[@"goldFind"]).floatValue;
+            self.magicFind = ((NSString*)statsDictionary[@"magicFind"]).floatValue;
+            self.lifeOnHit = ((NSString*)statsDictionary[@"lifeOnHit"]).floatValue;
+            self.lifePerKill = ((NSString*)statsDictionary[@"lifePerKill"]).floatValue;
+            self.lifeSteal = ((NSString*)statsDictionary[@"lifeSteal"]).floatValue;
+            self.primaryResource = ((NSString*)statsDictionary[@"primaryResource"]).floatValue;
+            self.secondaryResource = ((NSString*)statsDictionary[@"secondaryResource"]).floatValue;
+            self.thorns = ((NSString*)statsDictionary[@"thorns"]).floatValue;
         }
         
         NSDictionary *skillsDictionary = json[@"skills"];
