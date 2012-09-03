@@ -7,7 +7,10 @@
 //
 
 #import "D3Object.h"
-#import <UIKit/UIKit.h>
+#import "AFImageRequestOperation.h"
+
+typedef void (^D3GemImageRequestSuccess)(NSURLRequest*, NSHTTPURLResponse*, UIImage*);
+typedef void (^D3GemImageRequestFailure)(NSURLRequest*, NSHTTPURLResponse*, NSError*);
 
 @interface D3Gem : D3Object
 
@@ -20,5 +23,7 @@
 @property (copy, nonatomic) NSString *iconString;
 @property (strong, nonatomic) UIImage *icon;
 @property (strong, nonatomic) NSArray *attributes;
+
+- (AFImageRequestOperation*)requestGemIconWithImageProcessingBlock:(UIImage* (^)(UIImage *image))imageProcessingBlock success:(D3GemImageRequestSuccess)success failure:(D3GemImageRequestFailure)failure;
 
 @end

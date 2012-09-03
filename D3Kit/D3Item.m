@@ -177,7 +177,15 @@
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@.png",kD3MediaURL,kD3ItemParam,self.iconString];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    return [AFImageRequestOperation imageRequestOperationWithRequest:request imageProcessingBlock:imageProcessingBlock success:success failure:failure];
+    AFImageRequestOperation *operation = [AFImageRequestOperation imageRequestOperationWithRequest:request imageProcessingBlock:imageProcessingBlock success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.icon = image;
+            if (success) {
+                success(request, response, image);
+            }
+        });
+    } failure:failure];
+    return operation;
 }
 
 
