@@ -12,13 +12,13 @@
 
 + (D3Rune*)runeFromJSON:(NSDictionary *)json;
 
-@property (strong, nonatomic) NSString *description;
-@property (strong, nonatomic) NSString *simpleDescription;
-@property (strong, nonatomic) NSString *type;
-@property (strong, nonatomic) NSString *iconString;
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *slug;
-@property (strong, nonatomic) NSString *tooltipParams;
+@property (copy, nonatomic) NSString *description;
+@property (copy, nonatomic) NSString *simpleDescription;
+@property (copy, nonatomic) NSString *type;
+@property (copy, nonatomic) NSString *iconString;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *slug;
+@property (copy, nonatomic) NSString *tooltipParams;
 @property (assign, nonatomic) NSInteger orderIndex;
 
 @end

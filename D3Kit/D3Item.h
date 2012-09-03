@@ -44,13 +44,13 @@ enum D3ItemGeneralType {
 
 @property (strong, nonatomic) NSOperationQueue *queue;
 
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *colorString;
-@property (strong, nonatomic) NSString *tooltipParams;
-@property (strong, nonatomic) NSString *flavorText;
-@property (strong, nonatomic) NSString *iconString;
-@property (strong, nonatomic) NSString *setName;
-@property (strong, nonatomic) NSString *typeString;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *colorString;
+@property (copy, nonatomic) NSString *tooltipParams;
+@property (copy, nonatomic) NSString *flavorText;
+@property (copy, nonatomic) NSString *iconString;
+@property (copy, nonatomic) NSString *setName;
+@property (copy, nonatomic) NSString *typeString;
 @property (getter = getDisplayValue, nonatomic, readonly) NSString *displayValue;
 @property (getter = getDisplayValueUnit, nonatomic, readonly) NSString *displayValueUnit;
 @property (getter = getRequiredLevelString, nonatomic, readonly) NSString *requiredLevelString;

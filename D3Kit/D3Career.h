@@ -47,7 +47,7 @@ typedef void (^D3CareerRequestFailure)(NSError*);
  *  ---------------------------------------------------------------------------------------
  */
 
-@property (strong, nonatomic) NSString *battletag;
+@property (copy, nonatomic) NSString *battletag;
 
 @property (assign, nonatomic) D3Hero *lastHeroPlayed;
 

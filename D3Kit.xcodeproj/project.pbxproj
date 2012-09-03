@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86340D4915F448DE008AA28E /* D3Gem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86340D4815F448DE008AA28E /* D3Gem.m */; };
 		8675D73815E54A3A0006B42F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8675D73715E54A3A0006B42F /* Foundation.framework */; };
 		8675D73D15E54A3A0006B42F /* D3Kit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8675D73C15E54A3A0006B42F /* D3Kit.h */; };
 		8675D73F15E54A3A0006B42F /* D3Kit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8675D73E15E54A3A0006B42F /* D3Kit.m */; };
@@ -46,6 +47,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		86340D4715F448DE008AA28E /* D3Gem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3Gem.h; sourceTree = "<group>"; };
+		86340D4815F448DE008AA28E /* D3Gem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3Gem.m; sourceTree = "<group>"; };
 		8675D73415E54A3A0006B42F /* libD3Kit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libD3Kit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8675D73715E54A3A0006B42F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8675D73B15E54A3A0006B42F /* D3Kit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "D3Kit-Prefix.pch"; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				8675D76415E54ACF0006B42F /* D3Hero.m */,
 				8675D76715E54ACF0006B42F /* D3Item.h */,
 				8675D76815E54ACF0006B42F /* D3Item.m */,
+				86340D4715F448DE008AA28E /* D3Gem.h */,
+				86340D4815F448DE008AA28E /* D3Gem.m */,
 				8675D76915E54ACF0006B42F /* D3Object.h */,
 				8675D76A15E54ACF0006B42F /* D3Object.m */,
 				8675D76B15E54ACF0006B42F /* D3Rune.h */,
@@ -306,6 +311,7 @@
 				8675D78015E54ACF0006B42F /* D3Object.m in Sources */,
 				8675D78115E54ACF0006B42F /* D3Rune.m in Sources */,
 				8675D78215E54ACF0006B42F /* D3Skill.m in Sources */,
+				86340D4915F448DE008AA28E /* D3Gem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +405,7 @@
 				8675D74415E54A3A0006B42F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

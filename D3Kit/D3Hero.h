@@ -29,10 +29,10 @@ enum Gender {
 
 @property (weak, nonatomic) D3Career *career;
 
-@property (strong, nonatomic) NSString *name;
-@property (assign, nonatomic) NSString *gender;
-@property (strong, nonatomic) NSString *className;
-@property (strong, nonatomic) NSString *progressHighestDifficulty;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *gender;
+@property (copy, nonatomic) NSString *className;
+@property (copy, nonatomic) NSString *progressHighestDifficulty;
 
 @property (assign, nonatomic) BOOL hardcore;
 
