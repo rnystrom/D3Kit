@@ -24,18 +24,6 @@
         item.iconString = json[@"icon"];
         item.tooltipParams = json[@"tooltipParams"];
         item.itemType = type;
-        
-        NSDictionary *type = json[@"type"];
-        if ([type isKindOfClass:[NSDictionary class]]) {
-            item.typeString = type[@"id"];
-            
-            if ([item isShield]) {
-                item.itemType = D3ItemGeneralTypeArmor;
-            }
-            
-            NSNumber *twoHanded = type[@"twoHanded"];
-            item.isTwoHand = twoHanded.boolValue;
-        }
     }
     return item;
 }
@@ -298,6 +286,18 @@
                 NSString *socketsString = socketsRaw[@"max"];
                 self.sockets = socketsString.integerValue;
             }
+        }
+        
+        NSDictionary *type = json[@"type"];
+        if ([type isKindOfClass:[NSDictionary class]]) {
+            self.typeString = type[@"id"];
+            
+            if ([self isShield]) {
+                self.itemType = D3ItemGeneralTypeArmor;
+            }
+            
+            NSNumber *twoHanded = type[@"twoHanded"];
+            self.isTwoHand = twoHanded.boolValue;
         }
     }
 }
