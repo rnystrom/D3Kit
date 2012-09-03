@@ -80,7 +80,7 @@ enum D3ItemGeneralType {
 @property (assign, nonatomic) BOOL isTwoHand;
 
 - (AFImageRequestOperation*)requestForItemIconWithImageProcessingBlock:(UIImage* (^)(UIImage *image))imageProcessingBlock success:(D3ItemImageRequestSuccess)success failure:(D3ItemImageRequestFailure)failure;
-- (void)finishLoadingWithSuccess:(D3ItemRequestSuccess)success failure:(D3ItemRequestFailure)failure;
+- (AFJSONRequestOperation*)requestForItemWithSuccess:(D3ItemRequestSuccess)success failure:(D3ItemRequestFailure)failure;
 - (NSString*)setItemsFormattedString;
 - (NSString*)setBonusesFormattedString;
 - (BOOL)isShield;

@@ -193,18 +193,21 @@
 }
 
 
-- (void)finishLoadingWithSuccess:(void (^)(D3Item*))success failure:(void (^)(NSError*))failure {
+- (AFJSONRequestOperation*)requestForItemWithSuccess:(void (^)(D3Item*))success failure:(void (^)(NSError*))failure {
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@",kD3BaseURL,kD3DataParam,self.tooltipParams];
-    [[D3HTTPClient sharedClient] getJSONPath:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *json) {
-        [self parseFullJSON:json];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+        [self parseFullJSON:JSON];
+        self.isFullyLoaded = YES;
         if (success) {
             success(self);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON) {
         if (failure) {
             failure(error);
         }
     }];
+    return operation;
 }
 
 

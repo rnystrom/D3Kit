@@ -54,11 +54,24 @@
     NSString *careerParam = [D3Career apiParamFromBattletag:self.career.battletag];
     NSString *heroPath = [NSString stringWithFormat:@"%@%@/%i",careerParam,kD3APIHeroParam,self.ID];
     [[D3HTTPClient sharedClient] getJSONPath:heroPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *json) {
-        self.isFullyLoaded = YES;
         [self parseFullJSON:json];
-        if (success) {
-            success(self);
-        }
+        
+        // once json is parsed, get json of all items
+        NSMutableArray *operations = [NSMutableArray array];
+        [self.itemsArray enumerateObjectsUsingBlock:^(D3Item *item, NSUInteger idx, BOOL *stop) {
+            AFJSONRequestOperation *operation = [item requestForItemWithSuccess:NULL failure:NULL];
+            if (operation) {
+                [operations addObject:operation];
+            }
+        }];
+        
+        // enque all operations and then callback
+        [[D3HTTPClient sharedClient] enqueueBatchOfHTTPRequestOperations:operations progressBlock:NULL completionBlock:^(NSArray *completions) {
+            self.isFullyLoaded = YES;
+            if (success) {
+                success(self);
+            }
+        }];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSDictionary *userInfo = @{kD3HeroNotificationUserInfoKey : self};
             [[NSNotificationCenter defaultCenter] postNotificationName:kD3DoorsHeroNotification object:nil userInfo:userInfo];
