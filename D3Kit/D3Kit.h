@@ -17,6 +17,7 @@
 #import "D3Item.h"
 #import "D3Rune.h"
 #import "D3Skill.h"
+#import "D3Gem.h"
 
 @interface D3Kit : NSObject
 

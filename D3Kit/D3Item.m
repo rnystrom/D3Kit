@@ -8,6 +8,7 @@
 
 #import "D3HTTPClient.h"
 #import "D3Item.h"
+#import "D3Gem.h"
 
 @interface D3Item ()
 
@@ -271,6 +272,21 @@
             self.setItems = mutItems;
             self.setBonuses = set[@"ranks"];
         }
+        
+        NSArray *gems = json[@"gems"];
+        NSMutableArray *mutGems = [NSMutableArray array];
+        if ([gems isKindOfClass:[NSArray class]]) {
+            [gems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                if ([obj isMemberOfClass:[NSDictionary class]]) {
+                    NSDictionary *gemJSON = (NSDictionary*)obj;
+                    D3Gem *gem = [D3Gem gemFromJSON:gemJSON];
+                    if (gem) {
+                        [mutGems addObject:gem];
+                    }
+                }
+            }];
+        }
+        self.gems = mutGems;
     }
 }
 

@@ -69,7 +69,7 @@ enum D3ItemGeneralType {
 @property (assign, nonatomic) CGFloat attacksPerSecond;
 
 @property (strong, nonatomic) NSArray *attributes;
-@property (strong, nonatomic) NSArray *socketEffects;
+@property (strong, nonatomic) NSArray *gems;
 @property (strong, nonatomic) NSArray *setItems;
 @property (strong, nonatomic) NSArray *setBonuses;
 
