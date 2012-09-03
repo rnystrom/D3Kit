@@ -287,6 +287,15 @@
             }];
         }
         self.gems = mutGems;
+        
+        NSDictionary *attributesRaw = json[@"attributesRaw"];
+        if ([attributesRaw isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *socketsRaw = attributesRaw[@"Sockets"];
+            if ([socketsRaw isKindOfClass:[NSDictionary class]]) {
+                NSString *socketsString = socketsRaw[@"max"];
+                self.sockets = socketsString.integerValue;
+            }
+        }
     }
 }
 

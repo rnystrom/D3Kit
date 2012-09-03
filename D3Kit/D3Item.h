@@ -64,6 +64,7 @@ enum D3ItemGeneralType {
 @property (assign, nonatomic) NSInteger armor;
 @property (assign, nonatomic) NSInteger minDamage;
 @property (assign, nonatomic) NSInteger maxDamage;
+@property (assign, nonatomic) NSInteger sockets;
 
 @property (assign, nonatomic) CGFloat dps;
 @property (assign, nonatomic) CGFloat attacksPerSecond;
