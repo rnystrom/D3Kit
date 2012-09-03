@@ -20,7 +20,7 @@
         gem.ID = itemJSON[@"id"];
         gem.name = itemJSON[@"name"];
         gem.tooltipParam = itemJSON[@"tooltipParams"];
-        gem.icon = itemJSON[@"icon"];
+        gem.iconString = itemJSON[@"icon"];
     }
     return gem;
 }
