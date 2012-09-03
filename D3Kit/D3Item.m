@@ -276,7 +276,7 @@
         NSMutableArray *mutGems = [NSMutableArray array];
         if ([gems isKindOfClass:[NSArray class]]) {
             [gems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                if ([obj isMemberOfClass:[NSDictionary class]]) {
+                if ([obj isKindOfClass:[NSDictionary class]]) {
                     NSDictionary *gemJSON = (NSDictionary*)obj;
                     D3Gem *gem = [D3Gem gemFromJSON:gemJSON];
                     if (gem) {
