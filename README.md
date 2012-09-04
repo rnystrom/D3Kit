@@ -1,6 +1,10 @@
 ![D3Kit](https://github.com/rnystrom/D3Kit/blob/master/images/logo.png?raw=true)
 ======
 
+###Warning!
+
+*D3Kit is not in a production-ready state. Several of the modules are yet to be completed and the entire project is yet to be fully tested. Use at your own risk.*
+
 D3Kit is an easy to use layer to communicate with the [Diablo 3 API](http://blizzard.github.com/d3-api-docs/) maintained by Blizzard Entertainment. D3Kit handles all of the requests and gives you a simple block style callback system for successes and failures. After successful reqeusts are made, D3Kit parses the JSON response from Blizzard and builds NSObjects for you to use in your apps.
 
 ##Get Started
