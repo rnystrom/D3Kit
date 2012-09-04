@@ -15,7 +15,7 @@
  */
 
 typedef void (^D3CareerRequestSuccess)(D3Career*);
-typedef void (^D3CareerRequestFailure)(NSURLResponse*,NSError*);
+typedef void (^D3CareerRequestFailure)(NSHTTPURLResponse*,NSError*);
 
 @interface D3Career : D3Object
 

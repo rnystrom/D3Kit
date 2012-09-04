@@ -14,7 +14,7 @@
 typedef void (^D3ItemImageRequestSuccess)(NSURLRequest*, NSHTTPURLResponse*, UIImage*);
 typedef void (^D3ItemImageRequestFailure)(NSURLRequest*, NSHTTPURLResponse*, NSError*);
 typedef void (^D3ItemRequestSuccess)(D3Item*);
-typedef void (^D3ItemRequestFailure)(NSError*);
+typedef void (^D3ItemRequestFailure)(NSHTTPURLResponse*, NSError*);
 
 enum D3ItemType {
     D3ItemTypeHead = 0,

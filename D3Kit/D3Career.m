@@ -38,7 +38,7 @@
 
 #pragma mark - Loading
 
-+ (void)getCareerForBattletag:(NSString *)battletag success:(void (^)(D3Career *career))success failure:(void (^)(NSURLResponse *response, NSError *error))failure {
++ (void)getCareerForBattletag:(NSString *)battletag success:(void (^)(D3Career *career))success failure:(void (^)(NSHTTPURLResponse *response, NSError *error))failure {
     if (! [D3Career battletagIsValid:battletag]) {
         if (failure) {
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];

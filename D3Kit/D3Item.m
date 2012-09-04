@@ -189,7 +189,7 @@
 }
 
 
-- (AFJSONRequestOperation*)requestForItemWithSuccess:(void (^)(D3Item*))success failure:(void (^)(NSError*))failure {
+- (AFJSONRequestOperation*)requestForItemWithSuccess:(void (^)(D3Item*))success failure:(void (^)(NSHTTPURLResponse*, NSError*))failure {
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@",kD3BaseURL,kD3DataParam,self.tooltipParams];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
@@ -198,9 +198,9 @@
         if (success) {
             success(self);
         }
-    } failure:^(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON) {
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         if (failure) {
-            failure(error);
+            failure(response, error);
         }
     }];
     return operation;
