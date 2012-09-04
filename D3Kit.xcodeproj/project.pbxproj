@@ -95,6 +95,7 @@
 		8675D76C15E54ACF0006B42F /* D3Rune.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3Rune.m; sourceTree = "<group>"; };
 		8675D76D15E54ACF0006B42F /* D3Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3Skill.h; sourceTree = "<group>"; };
 		8675D76E15E54ACF0006B42F /* D3Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3Skill.m; sourceTree = "<group>"; };
+		86A57EF015F6814B0077F0B0 /* NSObject+Subscripts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Subscripts.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +117,6 @@
 				8675D73615E54A3A0006B42F /* Frameworks */,
 				8675D78515E54B190006B42F /* Other Sources */,
 				8675D73515E54A3A0006B42F /* Products */,
-				8675D73A15E54A3A0006B42F /* Resources */,
 				8675D78315E54AD50006B42F /* Vendor */,
 			);
 			sourceTree = "<group>";
@@ -146,15 +146,6 @@
 				8675D78615E54B230006B42F /* Misc */,
 			);
 			name = Classes;
-			path = D3Kit;
-			sourceTree = "<group>";
-		};
-		8675D73A15E54A3A0006B42F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8675D73B15E54A3A0006B42F /* D3Kit-Prefix.pch */,
-			);
-			name = Resources;
 			path = D3Kit;
 			sourceTree = "<group>";
 		};
@@ -223,8 +214,10 @@
 		8675D78515E54B190006B42F /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8675D73B15E54A3A0006B42F /* D3Kit-Prefix.pch */,
 				8675D75F15E54ACF0006B42F /* D3Defines.h */,
 				8675D76015E54ACF0006B42F /* D3Defines.m */,
+				86A57EF015F6814B0077F0B0 /* NSObject+Subscripts.h */,
 			);
 			name = "Other Sources";
 			path = D3Kit;
@@ -338,7 +331,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -356,7 +349,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -368,6 +361,7 @@
 				DSTROOT = /tmp/D3Kit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "D3Kit/D3Kit-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -380,6 +374,7 @@
 				DSTROOT = /tmp/D3Kit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "D3Kit/D3Kit-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

@@ -30,7 +30,7 @@
 
 + (NSString*)apiParamFromBattletag:(NSString*)battletag {
     NSArray *splitbattletag = [battletag componentsSeparatedByString:[D3Career battletagDivider]];
-    NSString *battletagName = splitbattletag [0];
+    NSString *battletagName = splitbattletag[0];
     NSString *battletagNumber = [splitbattletag lastObject];
     return [NSString stringWithFormat:@"%@/%@-%@/",kD3APIProfileParam,battletagName,battletagNumber];
 }

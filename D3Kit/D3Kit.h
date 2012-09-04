@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "NSObject+Subscripts.h"
 #import "D3Defines.h"
 #import "D3HTTPClient.h"
 #import "D3Career.h"
