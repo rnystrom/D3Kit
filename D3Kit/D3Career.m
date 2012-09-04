@@ -43,7 +43,7 @@
         if (failure) {
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
             [errorDetail setValue:@"A valid battletag name and number is required." forKey:NSLocalizedDescriptionKey];
-            NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:100 userInfo:errorDetail];
+            NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:667 userInfo:errorDetail];
             failure(nil, error);
         }
     }
