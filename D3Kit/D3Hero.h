@@ -10,7 +10,7 @@
 @class D3Career;
 
 typedef void (^D3HeroRequestSuccess)(D3Hero*);
-typedef void (^D3HeroRequestFailure)(NSError*);
+typedef void (^D3HeroRequestFailure)(NSURLResponse*,NSError*);
 
 #import "D3Skill.h"
 #import "D3Artisan.h"

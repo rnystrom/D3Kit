@@ -38,13 +38,13 @@
 
 #pragma mark - Loading
 
-+ (void)getCareerForBattletag:(NSString *)battletag success:(void (^)(D3Career *career))success failure:(void (^)(NSError *error))failure {
++ (void)getCareerForBattletag:(NSString *)battletag success:(void (^)(D3Career *career))success failure:(void (^)(NSURLResponse *response, NSError *error))failure {
     if (! [D3Career battletagIsValid:battletag]) {
         if (failure) {
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
             [errorDetail setValue:@"A valid battletag name and number is required." forKey:NSLocalizedDescriptionKey];
             NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:100 userInfo:errorDetail];
-            failure(error);
+            failure(nil, error);
         }
     }
     else {
@@ -53,8 +53,8 @@
             if ([json objectForKey:@"code"]) {
                 NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
                 [errorDetail setValue:[NSString stringWithFormat:@"Battletag %@ could not be found.",battletag] forKey:NSLocalizedDescriptionKey];
-                NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:100 userInfo:errorDetail];
-                failure(error);
+                NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:666 userInfo:errorDetail];
+                failure(operation.response, error);
             }
             else {
                 D3Career *career = [D3Career careerFromJSON:json];
@@ -70,7 +70,7 @@
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             if (failure) {
-                failure(error);
+                failure(operation.response, error);
             }
         }];
     }
