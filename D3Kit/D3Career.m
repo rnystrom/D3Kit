@@ -6,10 +6,33 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
-#import "D3HTTPClient.h"
 #import "D3Career.h"
 
 @implementation D3Career
+
+#pragma mark - NSObject
+
+- (id)init {
+    if (self = [super init]) {
+        NSDictionary *regions = [D3Career availableRegions];
+        _region = [regions allValues][0];
+        _httpClient = [[D3HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:urlForRegion(_region)]];
+    }
+    return self;
+}
+
+
+#pragma mark - Config
+
++ (NSDictionary*)availableRegions {
+    return @{
+    @"Americas" : @"us",
+    @"Europe"   : @"eu",
+    @"Korea"    : @"kr",
+    @"Taiwan"   : @"tw"
+    };
+}
+
 
 #pragma mark - Helpers
 
@@ -38,7 +61,7 @@
 
 #pragma mark - Loading
 
-+ (void)getCareerForBattletag:(NSString *)battletag success:(void (^)(D3Career *career))success failure:(void (^)(NSHTTPURLResponse *response, NSError *error))failure {
++ (void)getCareerForBattletag:(NSString *)battletag region:(NSString *)region success:(void (^)(D3Career *career))success failure:(void (^)(NSHTTPURLResponse *response, NSError *error))failure {
     if (! [D3Career battletagIsValid:battletag]) {
         if (failure) {
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
@@ -49,15 +72,19 @@
     }
     else {
         NSString *careerPath = [D3Career apiParamFromBattletag:battletag];
-        [[D3HTTPClient sharedClient] getJSONPath:careerPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *json) {
+        NSString *urlString = [NSString stringWithFormat:@"%@/%@",urlForRegion(region),careerPath];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSDictionary *json = (NSDictionary*)JSON;
             if ([json objectForKey:@"code"]) {
                 NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
                 [errorDetail setValue:[NSString stringWithFormat:@"Battletag %@ could not be found.",battletag] forKey:NSLocalizedDescriptionKey];
                 NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:666 userInfo:errorDetail];
-                failure(operation.response, error);
+                failure(response, error);
             }
             else {
                 D3Career *career = [D3Career careerFromJSON:json];
+                career.region = region;
                 if (career) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSDictionary *userInfo = @{kD3CareerNotificationUserInfoKey : career};
@@ -68,11 +95,12 @@
                     success(career);
                 }
             }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             if (failure) {
-                failure(operation.response, error);
+                failure(response, error);
             }
         }];
+        [operation start];
     }
 }
 
@@ -187,5 +215,17 @@
     }
     return career;
 }
+
+
+#pragma mark - Setters
+
+- (void)setRegion:(NSString *)region {
+    _region = region;
+    if (self.httpClient) {
+        [self.httpClient.operationQueue cancelAllOperations];
+    }
+    self.httpClient = [[D3HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:urlForRegion(region)]];
+}
+
 
 @end

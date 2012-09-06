@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "D3HTTPClient.h"
 #import "D3Hero.h"
 
 @class D3Career;
+@class D3HTTPClient;
 
 /** This class represents a Diablo 3 account. It is populated by requesting information from Blizzard's API for Diablo 3.
  
@@ -31,7 +33,8 @@ typedef void (^D3CareerRequestFailure)(NSHTTPURLResponse*,NSError*);
  *  ---------------------------------------------------------------------------------------
  */
 
-+ (void)getCareerForBattletag:(NSString*)battletag success:(D3CareerRequestSuccess)success failure:(D3CareerRequestFailure)failure;
++ (void)getCareerForBattletag:(NSString*)battletag region:(NSString*)region success:(D3CareerRequestSuccess)success failure:(D3CareerRequestFailure)failure;
++ (NSDictionary*)availableRegions;
 
 /**---------------------------------------------------------------------------------------
  * @name Helpers
@@ -47,7 +50,10 @@ typedef void (^D3CareerRequestFailure)(NSHTTPURLResponse*,NSError*);
  *  ---------------------------------------------------------------------------------------
  */
 
+@property (strong, nonatomic) D3HTTPClient *httpClient;
+
 @property (copy, nonatomic) NSString *battletag;
+@property (copy, nonatomic) NSString *region;
 
 @property (assign, nonatomic) D3Hero *lastHeroPlayed;
 

@@ -30,3 +30,5 @@ extern NSString * const kD3LastHeroPlayedNotification;
 extern NSString * const kD3DoorsAnimatedOffScreenNotification;
 extern NSString * const kD3DoorsHeroNotification;
 extern NSString * const kD3DoorsItemNotification;
+
+extern NSString * urlForRegion(NSString * region);

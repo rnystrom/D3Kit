@@ -18,7 +18,7 @@
 	static D3HTTPClient *sharedClient = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		sharedClient = [[[self class] alloc] initWithBaseURL:[NSURL URLWithString:kD3BaseURL]];
+		sharedClient = [[[self class] alloc] initWithBaseURL:[NSURL URLWithString:urlForRegion(@"us")]];
 	});
 	return sharedClient;
 }
