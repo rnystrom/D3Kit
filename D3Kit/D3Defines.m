@@ -10,7 +10,8 @@
 
 #pragma mark - URL
 
-NSString * const kD3BaseURL = @"http://%@.battle.net/api/d3";
+NSString * const kD3BaseURL = @"http://us.battle.net/api/d3";
+NSString * const kD3BaseRegionURL = @"http://%@.battle.net/api/d3";
 NSString * const kD3APIProfileParam = @"profile";
 NSString * const kD3APIHeroParam = @"hero";
 NSString * const kD3DataParam = @"data";
@@ -29,5 +30,5 @@ NSString * const kD3CareerNotificationUserInfoKey = @"D3_UserInfo_Career";
 NSString * const kD3HeroNotificationUserInfoKey = @"D3_UserInfo_Hero";
 
 NSString * urlForRegion(NSString * region) {
-    return [NSString stringWithFormat:kD3BaseURL,region];
+    return [NSString stringWithFormat:kD3BaseRegionURL,region];
 }

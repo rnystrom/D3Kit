@@ -15,6 +15,7 @@
 #define D3_LOGGING_MODE 1
 
 extern NSString * const kD3BaseURL;
+extern NSString * const kD3BaseRegionURL;
 extern NSString * const kD3MediaURL;
 extern NSString * const kD3APIProfileParam;
 extern NSString * const kD3APIHeroParam;
